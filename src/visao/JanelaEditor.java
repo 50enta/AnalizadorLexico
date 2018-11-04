@@ -1,4 +1,3 @@
-
 package visao;
 
 import controle.ModeloTabela;
@@ -16,15 +15,14 @@ import modelo.Token;
  * @author Claudio Sumburane
  * @author Herquiloide Hele
  * @author Jose Seie
- * 
+ *
  */
 public class JanelaEditor extends javax.swing.JFrame {
 
-   
     private ArrayList<Token> lista = new ArrayList<>();
-    private String colunas [] = {"Linha", "Token", "Tipo", "Tamanho"};
+    private String colunas[] = {"Linha", "Token", "Tipo", "Tamanho"};
     private ModeloTabela modelo = new ModeloTabela(lista, colunas);
-    
+
     public JanelaEditor() {
         initComponents();
         NumeroLinhas linhas = new NumeroLinhas();
@@ -239,14 +237,14 @@ public class JanelaEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_jbRunMouseEntered
 
     private void jbRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRunActionPerformed
-        if(jtePane.getText().isEmpty())
+        if (jtePane.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Nao foi encontrado nenhum codigo");
-        else{
+        } else {
             lista.clear();
             lista = Analisador.getTokens(jtePane.getText());
             modelo.setLista(lista);
             this.pintarLinha();
-        } 
+        }
     }//GEN-LAST:event_jbRunActionPerformed
 
     private void jtePaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtePaneKeyPressed
@@ -254,27 +252,25 @@ public class JanelaEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_jtePaneKeyPressed
 
     private void jtePaneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtePaneKeyReleased
-                       
+
     }//GEN-LAST:event_jtePaneKeyReleased
 
     private void jtePaneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtePaneKeyTyped
-        
+
     }//GEN-LAST:event_jtePaneKeyTyped
 
-    
-    public void pintarLinha(){
+    public void pintarLinha() {
         ArrayList<Integer> bugs = new ArrayList<>();
-        
-        for (int i=0; i<lista.size(); i++){
-            if(lista.get(i).getTipo() == TipoToken.Erro){
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getTipo() == TipoToken.Erro) {
                 bugs.add(i);
             }
         }
-        
+
 //        jtToken.setDefaultRenderer(Object.class, new ErrorLine(bugs));
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -306,7 +302,7 @@ public class JanelaEditor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JanelaEditor().setVisible(true);
-                            
+
             }
         });
     }

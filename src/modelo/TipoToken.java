@@ -35,7 +35,6 @@ public enum TipoToken{
     public String getRegra(){
         return this.regra;
     }
-    
     public static boolean erro(String texto){
        
         return !(texto.matches(PALAVRARESERVADA.regra)||

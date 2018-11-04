@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo;
 
 /**
@@ -14,22 +13,24 @@ public class GerarChaves {
 
     public static int impar = -1;
     public static int par = 0;
-    
-    public static int getProximaChave(int valor){
-        if(verficarPar(valor))
-            return par+=2;
-        else
-            return impar+=2;
-            
+
+    public static int getProximaChave(int valor) {
+        if (verficarPar(valor)) {
+            return par += 2;
+        } else {
+            return impar += 2;
+        }
+
     }
 
     /**
      * metodo que verifica se a chave de uma determinda palavra e par ou nao
+     *
      * @param valor
-     * @return 
+     * @return
      */
-    public static boolean verficarPar(int valor){
+    public static boolean verficarPar(int valor) {
         return (valor % 2) == 0;
     }
-    
+
 }
